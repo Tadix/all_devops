@@ -152,5 +152,5 @@ services:
    volumes:
        - jenkins_data:/var/jenkins_home
 networks:
-  network:
+  ecm:
     driver: bridge
