@@ -28,7 +28,7 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
     networks:
-      - network
+      - ecm
 
   mongodb:
     image: mongo:7.0.11
