@@ -1,0 +1,9 @@
+<div class="main">
+  <h2>Payments List</h2>
+  <div *ngFor="let payment of payments" class="payment-card">
+    <h3>Bills ID: {{ payment.id }}</h3>
+    <p><strong>Details:</strong> {{ payment.description }}</p>
+    <p><strong>Total:</strong> {{ payment.amount }}</p>
+    <p><strong>Date:</strong> {{ payment.date | date:'medium' }}</p>
+  </div>
+</div>

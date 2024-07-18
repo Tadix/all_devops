@@ -1,0 +1,29 @@
+<main class="main">
+  <div class="content">
+    <div class="left-side">
+      <h1>{{ title }}</h1>
+      <p>This app is front for devops formation</p>
+    </div>
+
+    <div class="right-side">
+
+
+      <div class="pill-group">
+
+        <button class="pill"  (click)="paymentsList()" routerLink="/" routerLinkActive="active">
+          <span>Payment</span>
+        </button>
+        <button class="pill" (click)="productList()" routerLink="/products" routerLinkActive="active">
+          <span>Products</span>
+        </button>
+        <button class="pill" (click)="ordersList()" routerLink="/orders" routerLinkActive="active">
+          <span>Orders</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<router-outlet/>

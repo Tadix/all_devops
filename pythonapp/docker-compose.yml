@@ -1,0 +1,47 @@
+name: 'pythonapp'
+
+services:
+  mongo:
+        image: mongo:7.0.11
+        container_name: mongodb
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: mongodb
+            MONGO_INITDB_ROOT_PASSWORD: mongodb
+            MONGO_INITDB_DATABASE: pythondb
+        ports:
+            - 27017:27017
+        volumes:
+            - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+        healthcheck:
+          test: mongosh localhost:27017/test --quiet
+          interval: 10s
+          timeout: 10s
+          retries: 5
+          start_period: 40s
+        networks:
+          - pythonapp-network
+
+  api:
+    container_name: pythonapp
+    build: .
+    environment:
+      FLASK_APP: app.py
+      FLASK_RUN_HOST: 0.0.0.0
+      #FLASK_ENV: development
+      ENVIRONMENT: prod
+      DATABASE_HOST: mongodb
+      DATABASE_PORT: 27017
+      DATABASE_USERNAME: mongodb
+      DATABASE_PASSWORD: mongodb
+    ports:
+      - "8000:5000"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - pythonapp-network
+
+networks:
+    pythonapp-network:
+        driver: bridge    
