@@ -16,7 +16,7 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - network
+      - ecm
 
   nodedb:
     image: postgres:14.12-alpine
@@ -49,7 +49,7 @@ services:
       retries: 5
       start_period: 40s
     networks:
-      - network
+      - ecm
 
   javaapi:
     container_name: javaapp
@@ -71,7 +71,7 @@ services:
       javadb:
         condition: service_healthy
     networks:
-      - network
+      - ecm
 
   pythonapi:
     container_name: pythonapp
@@ -90,7 +90,7 @@ services:
       mongodb:
         condition: service_healthy
     networks:
-      - network
+      - ecm
 
   nodeapi:
     build: ./nodeapp
@@ -105,7 +105,7 @@ services:
       - POSTGRES_PORT=5434
       - NODE_ENV=qua
     networks:
-      - network
+      - ecm
 
   reactui:
     container_name: reactui
@@ -114,7 +114,7 @@ services:
       javaapi:
         condition: service_healthy
     networks:
-      - network
+      - ecm
     ports:
       - "8083:80"
 
@@ -126,7 +126,7 @@ services:
     ports:
       - "8084:80"
     networks:
-      - network
+      - ecm
 
   nginx:
     image: nginx:latest
@@ -139,7 +139,18 @@ services:
       - ngui
       - reactui
     networks:
-      - network
+      - ecm
+
+  jenkins:
+   image: jenkins/jenkins:lts
+   container_name: jenkins
+   user: root
+   ports:
+     - "8006:8080"
+   networks:
+     - ecm
+   volumes:
+       - jenkins_data:/var/jenkins_home
 networks:
   network:
     driver: bridge
