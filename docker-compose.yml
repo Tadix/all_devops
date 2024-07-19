@@ -146,7 +146,7 @@ services:
    container_name: jenkins
    user: root
    ports:
-     - "8006:8080"
+     - "8006:80"
    networks:
      - ecm
    volumes:
