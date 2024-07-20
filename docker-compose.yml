@@ -151,6 +151,16 @@ services:
      - ecm
    volumes:
        - jenkins_data:/var/jenkins_home
+
+  docker_builder:
+    image: docker:latest
+    container_name: docker_builder
+    privileged: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - ecm
+
 networks:
   ecm:
     driver: bridge
