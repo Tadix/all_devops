@@ -8,6 +8,7 @@ agent any
         stage("build and lunch containers") {
              steps{
                    sh '''
+                sudo su
                 sudo docker compose up -d
                 
                 '''
