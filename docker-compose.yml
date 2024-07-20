@@ -153,13 +153,14 @@ services:
        - jenkins_data:/var/jenkins_home
 
   docker_builder:
-    image: docker
+    image: docker:latest
     container_name: docker_builder
     privileged: true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - ecm
+    command: ["tail", "-f", "/dev/null"]
 
 networks:
   ecm:
