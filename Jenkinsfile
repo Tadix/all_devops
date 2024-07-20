@@ -1,5 +1,5 @@
 pipeline{
-agent any
+agent {dockerfile true}
     stages{
         // stage("Checkout") {
         //         checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Tadix/amigos-services.git']])
