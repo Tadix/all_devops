@@ -6,9 +6,11 @@ agent {dockerfile true}
         //     }
 
         stage("build and lunch containers") {
-                sh '''
+             steps{
+                   sh '''
                 sudo docker compose up -d
                 
                 '''
+             }
             }}
 }
