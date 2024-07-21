@@ -21,6 +21,7 @@ export class ProductsComponent implements OnInit {
 constructor(private ProductService: ProductService){}
 
   ngOnInit(): void {
+    console.log("========================== test update ++++++++++++++++++++++++++++++++++");
   this.ProductService.getProducts().subscribe(
     data => {
       this.products = data;
