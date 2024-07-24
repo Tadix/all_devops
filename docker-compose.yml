@@ -123,6 +123,7 @@ services:
       context: ./ngui
       dockerfile: Dockerfile
     container_name: ngui
+    pull_policy: always
     ports:
       - "8084:80"
     networks:

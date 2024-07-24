@@ -1,13 +1,8 @@
-pipeline{
-agent any
-    stages{
+node("ci-node"){
 
-        stage("build and lunch containers") {
-             steps{
-                   sh '''
-                docker compose up -d
-                
-                '''
-             }
-            }}
+stage("Unit Tests") {
+        steps{
+        sh "chmod 700 javaapp/mvnw && javaapp/./mvnw test"
+        }
+    }
 }
