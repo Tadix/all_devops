@@ -81,6 +81,7 @@
 				<version>0.8.12</version>
 				<executions>
 					<execution>
+						<id>prepare-agent</id>
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
@@ -91,23 +92,15 @@
 						<goals>
 							<goal>report</goal>
 						</goals>
-					</execution>
-					<execution>
-						<id>report-integration</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>report-integration</goal>
-						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jacoco</outputDirectory>
+							<reportFormats>
+								<reportFormat>xml</reportFormat>
+							</reportFormats>
+							<file>${project.build.directory}/jacoco.xml</file>
+						</configuration>
 					</execution>
 				</executions>
-				<configuration>
-					<outputDirectory>${project.build.directory}/jacoco</outputDirectory>
-					<append>true</append>
-					<destFile>${project.build.directory}/jacoco/jacoco.exec</destFile>
-					<dataFile>${project.build.directory}/jacoco/jacoco.exec</dataFile>
-					<output>file</output>
-					<xmlReportDestination>${project.build.directory}/jacoco/jacoco.xml</xmlReportDestination>
-				</configuration>
 			</plugin>
 		<plugin>
         		<groupId>org.springframework.boot</groupId>
