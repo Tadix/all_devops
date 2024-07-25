@@ -28,8 +28,11 @@ node {
 
     post {
         always {
-            junit '**/target/surefire-reports/*.xml'
-            junit '**/target/failsafe-reports/*.xml'
+            dir('javaapp') {
+                               junit '**/target/surefire-reports/*.xml'
+                               junit '**/target/failsafe-reports/*.xml'
+                            }
+
         }
     }
 }
