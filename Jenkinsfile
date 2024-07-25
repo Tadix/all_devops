@@ -1,30 +1,20 @@
 node {
-    stage('Prepare Environment for JAVA APP') {
-        steps {
-            script {
-                dir('javaapp') {
-                    sh 'chmod 700 ./mvnw'
-                }
-            }
+    stage('Prepare Environment') {
+        dir('javaapp') {
+            sh 'chmod 700 ./mvnw'
         }
     }
 
     stage('Build') {
-        steps {
-            sh './mvnw clean compile'
-        }
+        sh './mvnw clean compile'
     }
 
     stage('Unit Tests') {
-        steps {
-            sh './mvnw test'
-        }
+        sh './mvnw test'
     }
 
     stage('Integration Tests') {
-        steps {
-            sh './mvnw verify -DskipTests=false -DskipITs=false'
-        }
+        sh './mvnw verify -DskipTests=false -DskipITs=false'
     }
 
     post {
