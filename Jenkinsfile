@@ -26,4 +26,9 @@ node {
 
     }
 
+
+    stage("Build") {
+            sh "./mvnw package -DskipTests"
+        }
+
 }
