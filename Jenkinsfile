@@ -23,7 +23,7 @@ node {
 
     }
 
-    stage('Integration Tests') {
+    stage('Integration Tests and sonarqube code analyses') {
     dir('javaapp') {
              sh './mvnw clean verify -DskipTests=false -DskipITs=false sonar:sonar -Dsonar.projectKey=all_devops -Dsonar.projectName="all_devops" -Dsonar.host.url=http://54.226.181.222:9000 -Dsonar.login=sqp_602b4d379d350f12dfb2c6b3387b7057067c0c0f'
          }
@@ -31,8 +31,17 @@ node {
     }
 
     stage("Build") {
-            dir('javaapp'){
+        dir('javaapp'){
             sh "./mvnw package -DskipTests"}
         }
+
+    stage("Build Docker Image") {
+
+    dir('javaapp'){
+        sh "sudo docker build -t javaapp ."
+         }
+     }
+
+
  }
 }
