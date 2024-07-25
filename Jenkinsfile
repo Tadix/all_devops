@@ -6,15 +6,24 @@ node {
     }
 
     stage('Build') {
-        sh './mvnw clean compile'
+     dir('javaapp') {
+                sh './mvnw clean compile'
+            }
+
     }
 
     stage('Unit Tests') {
-        sh './mvnw test'
+    dir('javaapp') {
+                    sh './mvnw test'
+                }
+
     }
 
     stage('Integration Tests') {
-        sh './mvnw verify -DskipTests=false -DskipITs=false'
+    dir('javaapp') {
+                       sh './mvnw verify -DskipTests=false -DskipITs=false'
+                    }
+
     }
 
     post {
