@@ -26,13 +26,4 @@ node {
 
     }
 
-    post {
-        always {
-            dir('javaapp') {
-                               junit '**/target/surefire-reports/*.xml'
-                               junit '**/target/failsafe-reports/*.xml'
-                            }
-
-        }
-    }
 }
