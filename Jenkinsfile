@@ -35,12 +35,12 @@ node {
             sh "./mvnw package -DskipTests"}
         }
 
-    stage("Build Docker Image") {
-
-    dir('javaapp'){
-        sh "sudo docker build -t javaapp ."
-         }
-     }
+//     stage("Build Docker Image") {
+//
+//     dir('javaapp'){
+//         sh "sudo docker build -t javaapp ."
+//          }
+//      }
 
 
  }
