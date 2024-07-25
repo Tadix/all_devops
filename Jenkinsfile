@@ -7,28 +7,29 @@ node {
 
     stage('Build') {
      dir('javaapp') {
-                sh './mvnw clean compile'
-            }
+            sh './mvnw clean compile'
+         }
 
     }
 
     stage('Unit Tests') {
     dir('javaapp') {
-                    sh './mvnw test'
-                }
+             sh './mvnw test'
+         }
 
     }
 
     stage('Integration Tests') {
     dir('javaapp') {
-                       sh './mvnw verify -DskipTests=false -DskipITs=false'
-                    }
+             sh './mvnw verify -DskipTests=false -DskipITs=false'
+         }
 
     }
 
 
     stage("Build") {
-            sh "./mvnw package -DskipTests"
+            dir('javaapp'){
+            sh "./mvnw package -DskipTests"}
         }
 
 }
