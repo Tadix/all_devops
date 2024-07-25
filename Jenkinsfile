@@ -1,4 +1,8 @@
 node {
+
+
+ withEnv(["JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64", "PATH=${env.JAVA_HOME}/bin:${env.PATH}"]) {
+
     stage('Prepare Environment') {
         dir('javaapp') {
             sh 'chmod 700 ./mvnw'
@@ -30,5 +34,5 @@ node {
             dir('javaapp'){
             sh "./mvnw package -DskipTests"}
         }
-
+ }
 }
