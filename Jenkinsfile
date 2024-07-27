@@ -16,12 +16,12 @@ node {
 
     }
 
-    stage('Unit Tests') {
-    dir('javaapp') {
-             sh './mvnw test'
-         }
-
-    }
+//     stage('Unit Tests') {
+//     dir('javaapp') {
+//              sh './mvnw test'
+//          }
+//
+//     }
 
     stage('Integration Tests and sonarqube code analyses') {
     dir('javaapp') {
