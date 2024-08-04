@@ -32,11 +32,11 @@ node {
             sh "./mvnw package -DskipTests"}
         }
 
-// stage("Build Docker Image") {
-//             dir('javaapp') {
-//                 sh "sudo docker build -t javaapp ."
-//             }
-//         }
+stage("Build Docker Image") {
+            dir('javaapp') {
+                sh "docker build -t javaapp ."
+            }
+        }
 
 //         stage("Push Docker Image to Registry") {
 //             withCredentials([string(credentialsId: 'docker-registry-credentials', variable: 'DOCKER_PASSWORD')]) {
