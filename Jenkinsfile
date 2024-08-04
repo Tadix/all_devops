@@ -13,13 +13,6 @@ node {
         }
     }
 
-    stage('Build') {
-     dir('javaapp') {
-            sh './mvnw clean compile'
-         }
-
-    }
-
     stage('Unit Tests') {
     dir('javaapp') {
              sh './mvnw test'
@@ -41,19 +34,19 @@ node {
 
 stage("Build Docker Image") {
             dir('javaapp') {
-                sh "docker build -t javaapp ."
+                sh "sudo docker build -t javaapp ."
             }
         }
 
-        stage("Push Docker Image to Registry") {
-            withCredentials([string(credentialsId: 'docker-registry-credentials', variable: 'DOCKER_PASSWORD')]) {
-                sh """
-                    echo "$DOCKER_PASSWORD" | docker login -u tadix07 --password-stdin
-                    docker tag javaapp:latest tadix07/tadix-private-image:latest
-                    docker push tadix07/tadix-private-image:latest
-                """
-            }
-        }
+//         stage("Push Docker Image to Registry") {
+//             withCredentials([string(credentialsId: 'docker-registry-credentials', variable: 'DOCKER_PASSWORD')]) {
+//                 sh """
+//                     echo "$DOCKER_PASSWORD" | docker login -u tadix07 --password-stdin
+//                     docker tag javaapp:latest tadix07/tadix-private-image:latest
+//                     docker push tadix07/tadix-private-image:latest
+//                 """
+//             }
+//         }
 
 
  }
