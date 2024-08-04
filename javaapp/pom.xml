@@ -94,10 +94,6 @@
 						</goals>
 						<configuration>
 							<outputDirectory>${project.build.directory}/jacoco</outputDirectory>
-<!--							<reportFormats>-->
-<!--								<reportFormat>xml</reportFormat>-->
-<!--							</reportFormats>-->
-<!--							<file>${project.build.directory}/jacoco.xml</file>-->
 						</configuration>
 					</execution>
 				</executions>
