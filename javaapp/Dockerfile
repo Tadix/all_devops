@@ -1,7 +1,6 @@
 FROM ubuntu
 RUN apt-get update && apt-get install openjdk-17-jdk vim curl -y
 WORKDIR /opt
-RUN ./mvnw dependency:resolve
 ADD target/pro-epargne-*.jar pro-epargne.jar
 EXPOSE 8080
 ENTRYPOINT [ "java", "-jar", "/opt/target/javaapp.jar" ]
