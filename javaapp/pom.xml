@@ -92,13 +92,13 @@
 						<goals>
 							<goal>report</goal>
 						</goals>
-<!--						<configuration>-->
-<!--							<outputDirectory>${project.build.directory}/jacoco</outputDirectory>-->
-<!--&lt;!&ndash;							<reportFormats>&ndash;&gt;-->
-<!--&lt;!&ndash;								<reportFormat>xml</reportFormat>&ndash;&gt;-->
-<!--&lt;!&ndash;							</reportFormats>&ndash;&gt;-->
-<!--&lt;!&ndash;							<file>${project.build.directory}/jacoco.xml</file>&ndash;&gt;-->
-<!--						</configuration>-->
+						<configuration>
+							<outputDirectory>${project.build.directory}/jacoco</outputDirectory>
+<!--							<reportFormats>-->
+<!--								<reportFormat>xml</reportFormat>-->
+<!--							</reportFormats>-->
+<!--							<file>${project.build.directory}/jacoco.xml</file>-->
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -109,25 +109,25 @@
             		<mainClass>com.devops_training.javaapp.JavaappApplication</mainClass>
         		</configuration>
     		</plugin>
-			
-<!--			<plugin>-->
-<!--  				<groupId>org.apache.maven.plugins</groupId>-->
-<!--  				<artifactId>maven-compiler-plugin</artifactId>-->
-<!--  				<configuration>-->
-<!--    				<annotationProcessorPaths>-->
-<!--						<path>-->
-<!--                			<groupId>org.projectlombok</groupId>-->
-<!--                			<artifactId>lombok</artifactId>-->
-<!--							<version>1.18.24</version>-->
-<!--            			</path>-->
-<!--        				<path>-->
-<!--            				<groupId>org.mapstruct</groupId>-->
-<!--            				<artifactId>mapstruct-processor</artifactId>-->
-<!--            				<version>1.5.5.Final</version>-->
-<!--        				</path>-->
-<!--    				</annotationProcessorPaths>-->
-<!--  				</configuration>-->
-<!--			</plugin>-->
+
+			<plugin>
+  				<groupId>org.apache.maven.plugins</groupId>
+  				<artifactId>maven-compiler-plugin</artifactId>
+  				<configuration>
+    				<annotationProcessorPaths>
+						<path>
+                			<groupId>org.projectlombok</groupId>
+                			<artifactId>lombok</artifactId>
+							<version>1.18.24</version>
+            			</path>
+        				<path>
+            				<groupId>org.mapstruct</groupId>
+            				<artifactId>mapstruct-processor</artifactId>
+            				<version>1.5.5.Final</version>
+        				</path>
+    				</annotationProcessorPaths>
+  				</configuration>
+			</plugin>
 
 			
 		</plugins>
