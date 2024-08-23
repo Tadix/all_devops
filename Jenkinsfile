@@ -22,7 +22,7 @@ node {
 
     stage('Integration Tests and sonarqube code analyses') {
     dir('javaapp') {
-             sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=all_devops -Dsonar.projectName="all_devops" -Dsonar.host.url=http://3.93.52.84/:9000 -Dsonar.token=sqp_3aaeee711735f727110648dc24bfdf42989ace35 -Dsonar.coverage.jacoco.xmlReportPaths=target/jacoco/jacoco.xml'
+             sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=all_devops -Dsonar.projectName="all_devops" -Dsonar.host.url=http://3.93.52.84:9000 -Dsonar.token=sqp_3aaeee711735f727110648dc24bfdf42989ace35 -Dsonar.coverage.jacoco.xmlReportPaths=target/jacoco/jacoco.xml'
          }
 
     }
